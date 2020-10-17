@@ -42,11 +42,40 @@ const NavStyles = styled.nav`
 
     a {
       font-size: 3rem;
+      display: block;
       text-decoration: none;
       &:hover {
         color: var(--red);
         --rotate: 3deg;
       }
+
+      @media (max-width: 800px) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    ul {
+      grid-template-rows: auto auto;
+      --columns: 4;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--grey);
+      padding-bottom: 2rem;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      place-items: center;
+      @media (max-width: 500px) {
+        --columns: 2;
+      }
+    }
+
+    .logo-item {
+      order: 0;
+      grid-column: 1 / -1;
+    }
+
+    .logo {
+      transform: none;
     }
   }
 `;
@@ -61,7 +90,7 @@ const Nav: React.FC = () => {
         <li>
           <Link to="/pizzas">Pizza Menu</Link>
         </li>
-        <li>
+        <li className="logo-item">
           <Link to="/">
             <Logo />
           </Link>
