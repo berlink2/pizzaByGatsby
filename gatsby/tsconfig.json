@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "module": "CommonJS",
+      "target": "ESnext",
+      "jsx": "preserve",
+      "lib": ["dom", "esnext"],
+      "strict": true,
+      "noEmit": true,
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "noUnusedLocals": false,
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true
+    },
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/styles/GlobalStyles.js",
+      "src/types/**/*",
+
+],
+    "exclude": ["node_modules",
+       "public",
+        ".cache",
+        "src/styles/**/*"
+      ]
+  }
