@@ -6,7 +6,7 @@ import "normalize.css";
 import GlobalStyles from "../styles/GlobalStyles";
 import Typography from "../styles/Typography";
 import Stripes from "../assets/images/stripes.svg";
-
+import SEO from "./SEO";
 const ContentStyles = styled.div`
   background: white;
   padding: 2rem;
@@ -35,6 +35,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }: Props) => {
   return (
     <>
+      <SEO title={"The Best Pizza in Canada!"}></SEO>
       <GlobalStyles />
       <Typography />
       <SiteBorderStyles>
