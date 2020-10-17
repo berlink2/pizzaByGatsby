@@ -9,14 +9,17 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-exports.handler = async (event, context) => {
+module.exports = async (req, res) => {
   const requiredFields = ["email", "name", "order"];
-  const data = JSON.parse(event.body);
+  const { data } = req;
   if (data.mapleSyrup) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ message: "Error 1234" }),
-    };
+    return res.status(400).json({
+      message: "Error 1234",
+    });
+    // return {
+    //   statusCode: 400,
+    //   body: JSON.stringify({ message: "Error 1234" }),
+    // };
   }
   let correctFormat = true;
   for (const field of requiredFields) {
@@ -27,10 +30,13 @@ exports.handler = async (event, context) => {
   }
 
   if (!correctFormat) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ message: "Wrong input" }),
-    };
+    // return {
+    //   statusCode: 400,
+    //   body: JSON.stringify({ message: "Wrong input" }),
+    // };
+    return res.status(400).json({
+      message: "Wrong input",
+    });
   }
 
   const info = await transporter.sendMail({
@@ -40,8 +46,12 @@ exports.handler = async (event, context) => {
     html: `<p>New order!</p>`,
   });
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Success" }),
-  };
+  return res.status(200).json({
+    message: "Success",
+  });
+
+  // return {
+  //   statusCode: 200,
+  //   body: JSON.stringify({ message: "Success" }),
+  // };
 };

@@ -1,5 +1,5 @@
 {
-  "name": "slicks-slices-frontend",
+  "name": "slicksslicesfrontend",
   "private": true,
   "description": "Slick Serves the Sweetest Slices",
   "version": "0.1.0",
@@ -37,6 +37,7 @@
     "isomorphic-fetch": "^2.2.1",
     "netlify-cli": "^2.62.0",
     "netlify-lambda": "^2.0.1",
+    "nodemailer": "^6.4.14",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
